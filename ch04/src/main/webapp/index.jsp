@@ -33,7 +33,18 @@
              - 스프링 MVC를 구성하고 MVC 관련 기능을 활성화하는 어노테이션
         -->
 </head>
-<body>
-<h3>4장 Spring MVC</h3>
-</body>
+    <body>
+        <h3>4장 Spring MVC</h3>
+        <h4>MVC 기본</h4>
+        <a href="/ch04/hello">hello</a>
+        <a href="/ch04/welcome">welcome</a>
+        <a href="/ch04/greeting">greeting</a>
+
+        <h4>Spring JDBC 실습</h4>
+        <a href="/ch04/user1/list">list1</a>
+        <a href="/ch04/user2/list">list2</a>
+        <a href="/ch04/user3/list">list3</a>
+        <a href="/ch04/user4/list">list4</a>
+        <a href="/ch04/user5/list">list5</a>
+    </body>
 </html>
