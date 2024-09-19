@@ -1,8 +1,8 @@
 package com.ch09.controller;
 
-import com.ch09.dto.User1DTO;
-import com.ch09.entity.User1;
-import com.ch09.service.User1Service;
+import com.ch09.dto.User2DTO;
+import com.ch09.entity.User2;
+import com.ch09.service.User2Service;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -16,49 +16,49 @@ import java.util.List;
 @Log4j2
 @RequiredArgsConstructor
 @Controller
-public class User1Controller {
+public class User2Controller {
 
-    private final User1Service user1Service;
+    private final User2Service user2Service;
 
     @ResponseBody
-    @GetMapping("/user1")
-    public List<User1DTO> list(){
-        List<User1DTO> users = user1Service.selectUser1s();
+    @GetMapping("/user2")
+    public List<User2DTO> list(){
+        List<User2DTO> users = user2Service.selectUser2s();
         return users;
     }
 
     @ResponseBody
-    @GetMapping("/user1/{uid}")
-    public User1DTO user(@PathVariable("uid") String uid){
-        User1DTO user = user1Service.selectUser1(uid);
+    @GetMapping("/user2/{uid}")
+    public User2DTO user(@PathVariable("uid") String uid){
+        User2DTO user = user2Service.selectUser2(uid);
         return user;
     }
 
     @ResponseBody
-    @PostMapping("/user1")
-    public ResponseEntity register(@RequestBody User1DTO user1DTO){
-        log.info(user1DTO);
-        User1 savedUser1 = user1Service.insertUser1(user1DTO);
+    @PostMapping("/user2")
+    public ResponseEntity register(@RequestBody User2DTO user2DTO){
+        log.info(user2DTO);
+        User2 savedUser2 = user2Service.insertUser2(user2DTO);
 
         return ResponseEntity
-                .status(HttpStatus.CREATED) // 201
-                .body(savedUser1);
+                .status(HttpStatus.CREATED) // 202
+                .body(savedUser2);
     }
 
-    @PutMapping("/user1")
-    public ResponseEntity modify(@RequestBody User1DTO user1DTO){
-        log.info(user1DTO);
-        User1 modifiedUser1 = user1Service.updateUser1(user1DTO);
+    @PutMapping("/user2")
+    public ResponseEntity modify(@RequestBody User2DTO user2DTO){
+        log.info(user2DTO);
+        User2 modifiedUser2 = user2Service.updateUser2(user2DTO);
 
         return ResponseEntity
                 .status(HttpStatus.ACCEPTED) //202
-                .body(modifiedUser1);
+                .body(modifiedUser2);
     }
 
-    @DeleteMapping("/user1/{uid}")
+    @DeleteMapping("/user2/{uid}")
     public ResponseEntity delete(@PathVariable("uid") String uid){
         try {
-            user1Service.deleteUser1(uid);
+            user2Service.deleteUser2(uid);
             return ResponseEntity
                     .status(HttpStatus.OK) //200
                     .body("success");
